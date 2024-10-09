@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="2"
+    resolveFromConfigFile="true"
+    findUnusedCode="false"
+    findUnusedBaselineEntry="false"
+    cacheDirectory="var/psalm/cache"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <issueHandlers>
+        <EmptyArrayAccess><errorLevel type="suppress"><directory name="src" /></errorLevel></EmptyArrayAccess>
+        <NonInvariantDocblockPropertyType><errorLevel type="suppress"><directory name="src" /></errorLevel></NonInvariantDocblockPropertyType>
+        <PossiblyInvalidCast><errorLevel type="suppress"><directory name="src" /></errorLevel></PossiblyInvalidCast>
+        <NoInterfaceProperties><errorLevel type="suppress"><directory name="src" /></errorLevel></NoInterfaceProperties>
+        <NoValue><errorLevel type="suppress"><directory name="src" /></errorLevel></NoValue>
+    </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Psl\Psalm\Plugin" />
+    </plugins>
+
+    <projectFiles>
+        <directory name="src"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+</psalm>

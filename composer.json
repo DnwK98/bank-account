@@ -1,0 +1,54 @@
+{
+    "name": "dnwk/bank-account",
+    "type": "project",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Damian Wójcik",
+            "email": "damian022w@wp.pl"
+        }
+    ],
+    "require": {
+        "php": "8.2.*",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-pdo": "*"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test:all": [
+            "@test:phpunit",
+            "@test:psalm",
+            "@test:php-cs"
+        ],
+        "test:phpunit": [
+            "@php vendor/bin/phpunit -c phpunit.xml.dist"
+        ],
+        "test:phpunit:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@php vendor/bin/phpunit --coverage-html public/coverage"
+        ],
+        "test:psalm" : "@php vendor/bin/psalm --threads=8 --no-cache",
+        "test:php-cs" : "@php vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --diff --stop-on-violation",
+        "php-cs:fix" : "@php vendor/bin/php-cs-fixer fix --using-cache=no --diff"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.16",
+        "phpunit/phpunit": "^9",
+        "php-standard-library/psalm-plugin": "^2.2",
+        "vimeo/psalm": "^5"
+    }
+}

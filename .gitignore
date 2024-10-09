@@ -1,0 +1,16 @@
+/.idea
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+/phpunit.xml
+.phpunit.result.cache
+/.php_cs
+/.php_cs.cache
+/docker/var/
+.env.docker
+.env.*.docker
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
